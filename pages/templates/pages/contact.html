@@ -1,4 +1,10 @@
+{%extends 'base.html'%}
 {%load static%}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{%block content%}
 <div class="contact_section layout_padding">
     <div class="container">
        <div class="row">
@@ -12,13 +18,13 @@
        <div class="contact_section_2">
           <div class="row">
              <div class="col-md-12">
+               <form method="post">
+                  {%csrf_token%}
                 <div class="mail_section_1">
-                   <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
-                   <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
-                   <input type="text" class="mail_text" placeholder="Your Phone" name="Your Phone">
-                   <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                   <div class="send_bt"><a href="#">SEND</a></div>
+                  {% bootstrap_form form %}
+                   <button type="submit" class="send_bt"><a href="#">SEND</a></div>
                 </div>
+               </form>
              </div>
              <div class="map_main">
                 <div class="map-responsive">
@@ -29,4 +35,6 @@
        </div>
     </div>
  </div>
+ {%endblock content%}
+
  
