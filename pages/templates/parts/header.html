@@ -1,4 +1,5 @@
 {%load static %}
+
 <div class="header_section">
    <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,22 +10,22 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="{%url 'index' %}">Home</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="{%url 'about' %}">About</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="coffees.html">Coffees</a>
+                  <a class="nav-link" href="{%url 'coffes' %}">Coffees</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="shop.html">Shop</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
+                  <a class="nav-link" href="{%url 'blog' %}">Blog</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="{%url 'contact' %}">Contact</a>
                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -38,6 +39,7 @@
          </div>
       </nav>
    </div>
+
    <!-- banner section start --> 
  {%include 'parts/banner.html'%}
 </div>
