@@ -11,3 +11,5 @@ def contact(request):
     return render(request,"pages/contact.html")
 def coffes(request):
     return render(request,"pages/coffes.html")
+def shop(request):
+    return render(request,"pages/shop.html")
