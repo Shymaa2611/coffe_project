@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags %} 
+
+{%block content%}
+<div dir="rtl">
+    <div class="container">
+        <div class="signup">
+    
+        <div class="col-md-9" >
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token%}
+                <h4 class="auth-header" style="font-size: 30px; font-weight: bold; margin-left:100px ; margin-top: 50px;">Create New Account</h4>
+                           
+                {{ form|crispy }}
+                    </div>
+                </div>
+                <div class="buttons-w"><button type="submit" class="btn btn-success" style="width: 200px;  margin-left:500px ; background-color:rgb(228, 182, 166);color:black ; font-weight: bold; ">SignUp</button></div>
+    
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+{%endblock content%}

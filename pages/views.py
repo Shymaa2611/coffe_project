@@ -1,24 +1,42 @@
 from django.shortcuts import render,redirect
-from django.views.generic import ListView
-from .forms import userForm
+from django.views.generic import ListView,CreateView
+from .forms import userForm,coffeForm
+from .models import userData,Coffee,Blog
 
-def index(request):
-    return render(request,"pages/index.html")
+class index(CreateView):
+    model=userData
+    form_class=userForm
+    template_name="pages/index.html"
+    success_url='/'
+    context_object_name='form'
+
+
 def about(request):
     return render(request,"pages/about.html")
-def blog(request):
-    return render(request,"pages/blog.html")
-def contact(request):
-    if request.method=='POST':
-        data_save=userForm(request.POST,request.FILES)
-        if data_save.is_valid():
-            data_save.save()
-            return redirect('/')
-    context={
-        'form':userForm()
-    }
-    return render(request,"pages/contact.html",context)
-def coffes(request):
-    return render(request,"pages/coffes.html")
-def shop(request):
-    return render(request,"pages/shop.html")
+
+class blog(ListView):
+    model=Blog
+    template_name="pages/blog.html"
+    context_object_name='blo'
+class contact(CreateView):
+    model=userData
+    form_class=userForm
+    template_name="pages/contact.html"
+    success_url='/'
+    context_object_name='form'
+
+class coffes(ListView):
+    model=Coffee
+    template_name='pages/coffes.html'
+    context_object_name='cof'
+class add_new_Coffe(CreateView):
+    model=Coffee
+    form_class=coffeForm
+    template_name='pages/add_new_coffe_type.html'
+    context_object_name='form'
+
+class shop(ListView):
+    model=userData
+    template_name="pages/shop.html"
+    success_url='/'
+    context_object_name='clients'

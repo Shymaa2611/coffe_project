@@ -1,10 +1,8 @@
 {%extends 'base.html'%}
 {%load static%}
-{% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{%load crispy_forms_tags %} 
+{%block content %}
 
-{%block content%}
 <div class="contact_section layout_padding">
     <div class="container">
        <div class="row">
@@ -21,20 +19,16 @@
                <form method="post">
                   {%csrf_token%}
                 <div class="mail_section_1">
-                  {% bootstrap_form form %}
-                   <button type="submit" class="send_bt"><a href="#">SEND</a></div>
+                  {{ form|crispy }}
+                   <button type="submit" class="send_bt"><a>SEND</a></button>
                 </div>
                </form>
              </div>
-             <div class="map_main">
-                <div class="map-responsive">
-                   <iframe src="https://www.google.com/maps/embed/v1/place?key=AIaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="250" height="500" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                </div>
-             </div>
+           
           </div>
        </div>
     </div>
  </div>
- {%endblock content%}
+ {%endblock content %}
 
  

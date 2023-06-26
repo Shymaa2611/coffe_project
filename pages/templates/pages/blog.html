@@ -1,7 +1,7 @@
-
+{%extends 'base.html' %}
 {%load static%}
 
-
+{%block content%}
 <div class="blog_section layout_padding">
     <div class="container">
        <div class="row">
@@ -12,25 +12,20 @@
        </div>
        <div class="blog_section_2">
           <div class="row">
+            {%for b in blo%}
              <div class="col-md-6">
                 <div class="blog_box">
-                   <div class="blog_img"><img src="{% static 'assets/blog-img1.png' %}"></div>
-                   <h4 class="date_text">05 April</h4>
-                   <h4 class="prep_text">PREP TECHNIQUES Coffee</h4>
-                   <p class="lorem_text">distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moredistracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more</p>
+                   <div class="blog_img"><img src="{{b.blog_image.url}}"></div>
+                   <h4 class="date_text">{{b.blog_publish_date.day}} {{b.blog_publish_date.month}}</h4>
+                   <h4 class="prep_text">{{b.blog_title}}</h4>
+                   <p class="lorem_text">{{b.blog_description}}</p>
                 </div>
                 <div class="read_bt"><a href="#">Read More</a></div>
              </div>
-             <div class="col-md-6">
-                <div class="blog_box">
-                   <div class="blog_img"><img src="{% static 'assets/blog-img2.png' %}"></div>
-                   <h4 class="date_text">05 April</h4>
-                   <h4 class="prep_text">PREP TECHNIQUES Coffee</h4>
-                   <p class="lorem_text">distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moredistracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more</p>
-                </div>
-                <div class="read_bt"><a href="#">Read More</a></div>
-             </div>
+             {%endfor%}
+           
           </div>
        </div>
     </div>
  </div>
+ {%endblock content%}
